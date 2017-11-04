@@ -1,6 +1,0 @@
-;(function (window) {
-
-%CONTENT%
-
-  window.__karma__.start = createFirebaseStartFn()
-})(window)
