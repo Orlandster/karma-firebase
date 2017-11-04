@@ -1,3 +1,6 @@
+const firebaseServer = require('firebase-server');
+const detect = require('detect-port');
+
 module.exports = function (config) {
   config.set({
     frameworks: ['mocha', 'chai', 'sinon'],
@@ -6,24 +9,32 @@ module.exports = function (config) {
       'test/test.bundle.js',
     ],
 
-    browsers: ['Chrome'],
+    browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome'],
 
-    autoWatch: false,
+    autoWatch: true,
 
     plugins: [
+      'karma-*',
       'karma-mocha',
       'karma-chai',
       'karma-sinon',
       'karma-firefox-launcher',
       'karma-chrome-launcher',
-      'karma-firebase',
+      { 
+        'middleware:firebase': ['factory', function (config) {
+          return function (request, response, next) {
+            detect(5000)
+              .then((port) => {
+                if (port === 5000) {
+                  new firebaseServer(5000, '127.0.0.1', { init: true });
+                }
+      
+                next();
+              });
+          };
+        }]
+      }
     ],
-
-    firebase: {
-      data: {
-        init: true,
-      },
-    },
 
     beforeMiddleware: ['firebase'],
   });
