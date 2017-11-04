@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    working_directory: ~/tmp
+    docker: 
+      - image: circleci/node:7-browsers
+        environment:
+          CHROME_BIN: "/usr/bin/google-chrome"
+    steps:
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: npm run test
+      - run: npm run lint
