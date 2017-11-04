@@ -5,7 +5,7 @@ module.exports = function (grunt) {
   grunt.initConfig({
     pkgFile: 'package.json',
     karma: {
-      adapter: {
+      unit: {
         configFile: 'karma.conf.js',
         autoWatch: false,
         singleRun: true,
@@ -14,19 +14,27 @@ module.exports = function (grunt) {
     },
     eslint: {
       target: [
-        'src/adapter.js',
-        'lib/index.js',
-        'gruntfile.js',
         'karma.conf.js',
         'test/*.js',
-        'tasks/*.js',
+        'index.js',
       ],
+    },
+    webpack: {
+      prod: {
+        entry: './test/index.spec.js',
+        output: {
+          path: path.resolve(__dirname, 'test'),
+          filename: 'test.bundle.js',
+        },
+      },
     },
   });
 
+  grunt.loadNpmTasks('grunt-webpack');
+
   require('load-grunt-tasks')(grunt);
 
-  grunt.registerTask('test', ['karma']);
+  grunt.registerTask('test', ['webpack', 'karma']);
   grunt.registerTask('lint', ['eslint']);
   grunt.registerTask('default', ['eslint', 'karma']);
 };

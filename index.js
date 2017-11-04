@@ -13,7 +13,7 @@ const firebaseFactory = function (config) {
 
         next();
       });
-    }
+  };
 };
 
 firebaseFactory.$inject = ['config.firebase'];

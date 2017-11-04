@@ -3,13 +3,12 @@ module.exports = function (config) {
     frameworks: ['mocha', 'chai', 'sinon'],
 
     files: [
-      'src/*.js',
-      'test/src/*.js',
+      'test/test.bundle.js',
     ],
 
-    browsers: process.env.TRAVIS ? ['Firefox'] : ['Chrome'],
+    browsers: ['Chrome'],
 
-    autoWatch: true,
+    autoWatch: false,
 
     plugins: [
       'karma-mocha',
@@ -17,6 +16,15 @@ module.exports = function (config) {
       'karma-sinon',
       'karma-firefox-launcher',
       'karma-chrome-launcher',
+      'karma-firebase',
     ],
+
+    firebase: {
+      data: {
+        init: true,
+      },
+    },
+
+    beforeMiddleware: ['firebase'],
   });
 };
