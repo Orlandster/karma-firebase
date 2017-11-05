@@ -22,11 +22,13 @@ module.exports = function (config) {
       'karma-chrome-launcher',
       { 
         'middleware:firebase': ['factory', function (config) {
+          const port = config.firebase.port || 5000;
+          
           return function (request, response, next) {
-            detect(5000)
-              .then((port) => {
-                if (port === 5000) {
-                  new firebaseServer(5000, '127.0.0.1', { init: true });
+            detect(port)
+              .then((activePort) => {
+                if (activePort === port) {
+                  new firebaseServer(port, '127.0.0.1', config.firebase.data);
                 }
       
                 next();
@@ -35,6 +37,11 @@ module.exports = function (config) {
         }]
       }
     ],
+
+    firebase: {
+      port: 5000,
+      data: { init: true },
+    },
 
     beforeMiddleware: ['firebase'],
   });

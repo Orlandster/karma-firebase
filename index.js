@@ -4,11 +4,13 @@ const detect = require('detect-port');
 
 const firebaseFactory = function (config) {
   return function (request, response, next) {
-    detect(5000)
-      .then((port) => {
-        if (port === 5000) {
-          const data = config.data || {};
-          new FirebaseServer(5000, '127.0.0.1', data);
+    const port = config.port || 5000;
+    const data = config.data || {};
+
+    detect(port)
+      .then((detectedPort) => {
+        if (detectedPort === port) {
+          new FirebaseServer(port, '127.0.0.1', data);
         }
 
         next();
