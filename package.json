@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Orlandster1998/karma-firebase#readme",
   "devDependencies": {
+    "babel-eslint": "^8.0.1",
     "chai": "^4.1.2",
     "eslint": "^4.10.0",
     "eslint-config-airbnb": "^16.1.0",
