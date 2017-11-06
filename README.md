@@ -1,5 +1,5 @@
 karma-firebase :fire: 
-[![CircleCI](https://circleci.com/gh/Orlandster1998/karma-firebase/tree/master.svg?style=shield)](https://circleci.com/gh/Orlandster1998/karma-firebase/tree/master)(https://circleci.com/gh/Orlandster1998/karma-firebase/tree/master)
+[![CircleCI](https://circleci.com/gh/Orlandster1998/karma-firebase/tree/master.svg?style=shield)](https://circleci.com/gh/Orlandster1998/karma-firebase/tree/master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/ae1d9a0b1ec145da90585e8d3646a72f)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Orlandster1998/karma-firebase&amp;utm_campaign=Badge_Grade)
 [![npm version](https://badge.fury.io/js/karma-firebase.svg)](https://badge.fury.io/js/karma-firebase)
 ===========
@@ -55,7 +55,7 @@ You are able to configure the plugin within the `firebase` property.
 
 ## Usage
 
-Once the configuration is ready you can make use of the `firebase-server` within your tests.
+Once the configuration is setup you can make use of the `firebase-server` within your tests.
 
 Simply initialize the firebase app the following way:
 
