@@ -6,14 +6,14 @@ karma-firebase :fire:
 
 A simple plugin for `integration` and `e2e` testing with Firebase. The plugin is based on `firebase-server`.
 
-# Installation
+## Installation
 The easiest way is to install `karma-firebase` is by doing the following way:
 
 ```bash
 $ npm install karma-firebase --save-dev
 ```
 
-# Configuration
+## Configuration
 Once `karma-firebase` is installed you can make use of it by adding the plugin to your karma configuration file.
 
 ### `karma.conf.js`
