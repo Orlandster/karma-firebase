@@ -1,7 +1,16 @@
 {
   "name": "karma-firebase",
-  "version": "0.1.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "A simple plugin for integration and e2e testing with Firebase.",
+  "keywords": [
+    "firebase",
+    "karma",
+    "firebase karma",
+    "karma firebase",
+    "firebase testing",
+    "firebase tests",
+    "test firebase"
+	],
   "main": "index.js",
   "scripts": {
     "lint": "grunt lint",
@@ -20,6 +29,7 @@
   "devDependencies": {
     "babel-eslint": "^8.0.1",
     "chai": "^4.1.2",
+    "ecdsa-sig-formatter": "^1.0.9",
     "eslint": "^4.10.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
@@ -44,7 +54,6 @@
   },
   "dependencies": {
     "detect-port": "^1.2.1",
-    "ecdsa-sig-formatter": "^1.0.9",
     "firebase-server": "^0.11.0"
   }
 }
