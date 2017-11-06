@@ -8,12 +8,10 @@ describe('karma-firebase', () => {
     ref = firebase.app().database().ref();
   });
 
-  it('check initial database value', () => {
-    return ref.child('init').once('value')
-      .then((snap) => {
-        expect(snap.val()).to.be.true;
-      });
-  });
+  it('check initial database value', () => ref.child('init').once('value')
+    .then((snap) => {
+      expect(snap.val()).to.be.true;
+    }));
 
   it('ref.toString() should return the correct URL', () => {
     expect(ref.toString()).to.be.equal('http://127.0.1:5000/');

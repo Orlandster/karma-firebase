@@ -1,4 +1,3 @@
-const path = require('path');
 const FirebaseServer = require('firebase-server');
 const detect = require('detect-port');
 

@@ -15,7 +15,7 @@ module.exports = function (grunt) {
     eslint: {
       target: [
         'karma.conf.js',
-        'test/*.js',
+        'test/index.spec.js',
         'index.js',
       ],
     },
